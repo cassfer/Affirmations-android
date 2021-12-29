@@ -3,6 +3,7 @@ package br.com.cassfer.affirmations
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cassfer.affirmations.adapter.ItemAdapter
 import br.com.cassfer.affirmations.data.Datasource
@@ -18,10 +19,13 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view);
 
+        val manager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+
+        recyclerView.layoutManager = manager;
+
         recyclerView.adapter = ItemAdapter(this, myDataset);
 
         recyclerView.setHasFixedSize(true);
-
 
     }
 }
